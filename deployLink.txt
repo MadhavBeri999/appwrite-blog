@@ -1,1 +1,2 @@
+The live deployable link for this project is this pls copy this and paste in your browser  ,you wil land on the landing page of our blog app
 https://appwrite-blog-flame-delta.vercel.app/

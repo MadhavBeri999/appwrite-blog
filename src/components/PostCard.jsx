@@ -2,8 +2,10 @@ import React from 'react'
 import service from '../appwrite/conf'
 import { Link } from 'react-router-dom'
 
+import parse from 'html-react-parser';
+
 // PostCard.jsx
-function PostCard({ $id, title, featuredimage }) {
+function PostCard({ $id, title, featuredimage, content }) {
     return (
         <Link to={`/post/${$id}`}>
             <div className='p-4 rounded-xl w-full bg-white shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100'>
@@ -22,6 +24,11 @@ function PostCard({ $id, title, featuredimage }) {
                         )}
                     </div>
                     <h2 className='text-xl font-bold text-gray-800'>{title}</h2>
+                    {content && (
+                        <div className="text-gray-600 text-sm mt-2 line-clamp-3">
+                            {parse(content)}
+                        </div>
+                    )}
                 </div>
             </div>
         </Link>

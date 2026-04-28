@@ -15,14 +15,17 @@ export class Service {
     }
     async createpost({ title, slug, content, featuredimage, status, userId }) {
         try {
-            return await this.databases.createDocument({
-                databaseId: config.appwriteDatabaseID,
-                collectionId: config.appwriteTableID,
-                documentId: slug,
-                data: {
-                    title, content, featuredimage, status, userId  //Things that we need to put so that to tell us what do we need to add in thsi for this only we passed the srgumnets in the
+            console.log("Backend request body for createpost:", { title, slug, content, featuredimage, status, userId });
+            const response = await this.databases.createDocument(
+                config.appwriteDatabaseID,
+                config.appwriteTableID,
+                slug,
+                {
+                    title, content, featuredimage, status, userId
                 }
-            })
+            );
+            console.log("Saved to DB successfully:", response);
+            return response;
 
         } catch (error) {
             console.log("this is the error due to the createPost ", error)

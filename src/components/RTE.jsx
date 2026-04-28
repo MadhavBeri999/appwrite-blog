@@ -42,6 +42,7 @@ export default function RTE({ name, control, label, defaultValue = '' }) {
                                 content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }"
                             }}
                             initialValue="Welcome to TinyMCE!"
+                            onEditorChange={onChange}
                         />
 
                     )}//tabhi render hoyega jab kuch change haoyega because we have set the value to be on change
